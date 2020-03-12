@@ -78,7 +78,7 @@ KUBECTL_NS="${KUBECTL} apply -n ${NAMESPACE} -f"
 if [[ "${KUBECTL}" == "kubectl" ]]; then
     $KUBECTL create namespace ${NAMESPACE}
 else
-    $KUBECTL adm new-project ${NAMESPACE}
+    $KUBECTL adm new-project ${NAMESPACE} --node-selector=""
 
     # Since this plugin needs to mount external volumes to containers, create a SCC to allow the flex-daemon pod to
     # use the hostPath volume plugin
